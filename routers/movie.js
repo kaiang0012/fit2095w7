@@ -102,5 +102,15 @@ module.exports = {
 
             res.json(movies);
         });
-    } 
+    },
+    
+    actorCount: function (req, res) {
+        Movie.findOne({ _id: req.params.id })
+        .populate('actors')
+        .exec(function (err, movie) {
+            if (err) return res.status(400).json(err);
+
+            res.status(200).json({status: "success", movieid: movie.id, actorCount: movie.actors.length});
+        });
+    },
 };

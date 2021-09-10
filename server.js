@@ -40,3 +40,4 @@ app.put('/movies/:movieid/:actorid', movies.deleteActor);
 app.post('/movies/:id/actors', movies.addActor);
 app.get('/movies/:year1/:year2', movies.getAllBetween);
 app.delete('/movies/', movies.deleteAllBetween);
+app.get('/movies/actorcount/:id', movies.actorCount);
